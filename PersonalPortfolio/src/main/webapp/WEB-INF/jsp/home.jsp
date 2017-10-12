@@ -7,6 +7,6 @@
 <title>Personal Portfolio Website</title>
 </head>
 <body>
-	Hello World!
+	Hello...${bio}
 </body>
 </html>
