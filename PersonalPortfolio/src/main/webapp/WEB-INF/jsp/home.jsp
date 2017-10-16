@@ -11,9 +11,15 @@
 			<h1 class="mt-5">${ personalInfo }</h1>
 			<p>${ bio }</p>
 			<p>${ academicInfo }</p>
-			<p class="text-center">
-				<button type="button" class="btn btn-success">Update</button>
-			</p>
+
+			<!--<c:url var="redirectUpdate" value="/home-update" />
+			<form action="<c:out value="${redirectUpdate}"/>" method="post">
+				<p class="text-center">
+					<button type="submit" class="btn btn-success">Update</button>
+				</p>
+			</form>-->
+			
+			<p style="padding-top: 15px; padding-left: 20px"><a href="/home-update" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update</a></p>
 		</div>
 	</div>
 

@@ -24,9 +24,10 @@ public class HomeController {
 		model.addAttribute("academicInfo", infoPropertiesService.getAcademicInfo());
 	}
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value= {"/","/home"})
 	public String getIndex(Model model) {	
-
 		return "home";
 	}
+	
+
 }
