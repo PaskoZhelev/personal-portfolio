@@ -12,7 +12,7 @@
                  <td><form:textarea path="personalInfo" rows="5" cols="80" /></td>
                </tr>
                <tr >
-                  <td><span class="errorblock"><form:errors path="personalInfo"/></span></td>
+                  <td><span style="color: red" class="errorblock"><form:errors path="personalInfo"/></span></td>
                </tr>
              </table>
              
@@ -22,7 +22,7 @@
                  <td><form:textarea path="bio" rows="8" cols="80" /></td>
                </tr>
                <tr >
-                  <td><span class="errorblock"><form:errors path="bio"/></span></td>
+                  <td><span style="color: red" class="errorblock"><form:errors path="bio"/></span></td>
                </tr>
              </table>
              
@@ -32,7 +32,7 @@
                  <td><form:textarea path="academicInfo" rows="5" cols="80" /></td>
                </tr>
                <tr >
-                  <td><span class="errorblock"><form:errors path="academicInfo"/></span></td>
+                  <td><span style="color: red" class="errorblock"><form:errors path="academicInfo"/></span></td>
                </tr>
              </table>
              

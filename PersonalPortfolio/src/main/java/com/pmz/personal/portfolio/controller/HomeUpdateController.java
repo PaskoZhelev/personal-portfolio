@@ -1,30 +1,28 @@
 package com.pmz.personal.portfolio.controller;
 
+import javax.validation.Valid;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pmz.personal.portfolio.model.forms.HomeForm;
+import com.pmz.personal.portfolio.service.UpdateInformationPropertiesService;
 
 @Controller
 @RequestMapping(value="/home-update")
 public class HomeUpdateController {
 	
+	static Logger log = Logger.getLogger(HomeUpdateController.class.getName());
+	
 	@Autowired
-	private Validator homeValidator;
+	private UpdateInformationPropertiesService updateInformationPropertiesService;
 
-	@InitBinder("homeForm")
-	public void initBinder(WebDataBinder binder) {
-		binder.setValidator(homeValidator);
-	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String getUpdateForm(Model model) {
@@ -36,15 +34,16 @@ public class HomeUpdateController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submitUpdateForm(Model model,
-			@ModelAttribute("homeForm") @Validated HomeForm homeForm,
+			@ModelAttribute("homeForm") @Valid HomeForm homeForm,
 			BindingResult binding) {
 		
 		model.addAttribute("homeForm", homeForm);
 		String returnVal = "home";
 		if (binding.hasErrors()) {
-			returnVal = "home_update";
+			log.info("Wrong Fields");
+			returnVal = "home-update";
 		} else {
-			model.addAttribute("homeSess", homeForm);
+			updateInformationPropertiesService.updateProperties(homeForm);
 		}
 		return returnVal;
 	}

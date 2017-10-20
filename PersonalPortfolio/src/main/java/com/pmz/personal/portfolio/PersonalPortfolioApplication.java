@@ -9,7 +9,8 @@ import org.springframework.context.annotation.PropertySources;
 @SpringBootApplication
 @ComponentScan("com.pmz.personal.portfolio")
 @PropertySources({
-    @PropertySource("classpath:information.properties")
+    @PropertySource("classpath:information.properties"),
+    @PropertySource("classpath:validationmessages.properties")
 })
 public class PersonalPortfolioApplication {
 
